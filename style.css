@@ -12,7 +12,7 @@ body {
 
 #main-play-area {
     background-color: black;
-    background-image: url(img/space.png);
+    background-image: url('./img/space.png');
     height: 600px;
     width: 600px;
 }
@@ -41,7 +41,27 @@ body {
 }
 
 .laser{
-    
+    position: relative;
+    width: 40px;
+    height: 30px;
+}
+
+.alien{
+    position: relative;
+    height: 60px;
+    width: 70px;
+}
+
+.alien-transition{
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.alien-dead{
+    position: relative;
+    height: 60px;
+    width: 70px;
+    opacity: 0;
 }
 
 
