@@ -29,7 +29,7 @@ function moveUp(){
     }
     else{
         let position = parseInt(topPosition);
-        position -= 10;
+        position -= 20;
         player.style.top = position+'px';
     }
 }
@@ -41,7 +41,7 @@ function moveDown(){
     }
     else{
         let position = parseInt(topPosition);
-        position += 10;
+        position += 20;
         player.style.top = position+'px';
     }
 }
@@ -93,7 +93,7 @@ function createAliens() {
     newAlien.classList.add('alien');
     newAlien.classList.add('alien-transition');
     newAlien.style.left = '370px';
-    newAlien.style.top = `${Math.floor(Math.random() * 330) + 30}px`;
+    newAlien.style.top = (Math.floor(Math.random() * 330) + 30)+'px';
     playArea.appendChild(newAlien);
     moveAlien(newAlien);
 }
@@ -102,16 +102,16 @@ function createAliens() {
 function moveAlien(alien) {
     let moveAlienInterval = setInterval(() => {
         let xPosition = parseInt(window.getComputedStyle(alien).getPropertyValue('left'));
-        if(xPosition <= 50) {
+        if(xPosition <= 30) {
             if(Array.from(alien.classList).includes('alien-dead')) {
                 alien.remove();
             } else {
                 gameOver();
             }
         } else {
-            alien.style.left = `${xPosition - 4}px`;
+            alien.style.left = (xPosition - 3)+'px';
         }
-    }, 30);
+    }, 50);
 }
 
 //função para  colisão
@@ -163,5 +163,5 @@ function gameOver() {
         player.style.top = "250px";
         startButton.style.display = "block";
         instructionsText.style.display = "block";
-    });
+    },1000);
 }
