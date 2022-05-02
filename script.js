@@ -59,8 +59,8 @@ function createLaserElement() {
     let newLaser = document.createElement('img');
     newLaser.src = './img/shoot.png';
     newLaser.classList.add('laser');
-    newLaser.style.left = `${xPosition}px`;
-    newLaser.style.top = `${yPosition - 10}px`;
+    newLaser.style.left = xPosition+'px';
+    newLaser.style.top = yPosition - 10+'px';
     return newLaser;
 }
 
@@ -73,7 +73,7 @@ function moveLaser(laser) {
             if(checkLaserCollision(laser, alien)) {
                 alien.src = './img/explosion.png';
                 alien.classList.remove('alien');
-                alien.classList.add('dead-alien');
+                alien.classList.add('alien-dead');
             }
         })
 
@@ -118,10 +118,10 @@ function moveAlien(alien) {
 function checkLaserCollision(laser, alien) {
     let laserTop = parseInt(laser.style.top);
     let laserLeft = parseInt(laser.style.left);
-    let laserBottom = laserTop - 20;
+    let laserBottom = laserTop - 30;
     let alienTop = parseInt(alien.style.top);
     let alienLeft = parseInt(alien.style.left);
-    let alienBottom = alienTop - 30;
+    let alienBottom = alienTop - 60;
     if(laserLeft != 340 && laserLeft + 40 >= alienLeft) {
         if(laserTop <= alienTop && laserBottom >= alienBottom) {
             return true;
